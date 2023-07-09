@@ -1,7 +1,8 @@
 
 
 
-const name = ["Bhanu" , "Pratap" , "Shukla"] // for (let names of name){
+const name = ["Bhanu" , "Pratap" , "Shukla"];  
+   for (let names of name){
    console.log(names);
 }
 
