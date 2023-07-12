@@ -2,13 +2,18 @@ const express = require('express');
 
 const app = express(); //creates an object stored in app
 
-// Use() creates a middleware
-app.use((req, res, next) => {
-    console.log('I am in the middleware');
-    next(); //Allows the request to move on to the next middleware
+// Use() creates a middleware which is executed from top to bottom
+app.use('/',(req, res, next) => {
+    console.log('This always runs!');
+    next(); //Allows req to move to the next middleware
 });
 
-app.use((req, res, next) => {
+app.use('/add-product',(req, res, next) => {
+    console.log('Fist middleware');
+    res.send('<h1>I am in the Add-Product page!');
+});
+
+app.use('/',(req, res, next) => {
     console.log('In another middleware');
     res.send('<h1>Hello from express!');
 });
